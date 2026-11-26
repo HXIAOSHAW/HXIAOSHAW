@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>He Xiao, selected work</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE work: a two-minute read for a hiring manager, calm and exact
+   IDEA an engineer's run log: each attempt, what broke, what the evidence says
+   PICTURE the JUPITER bring-up as a route of real jobs, fail to pass, ending with the first passing job
+   COLOUR white ground, ink #14110f, ultramarine #1d2bd8 lead, amber for a caught failure, cool grey
+   TYPE Spectral 600 display + Inter text
+   LAYOUT laptop: title and short pitch across the top, route full width beneath, then three project columns; phone: stacked, route vertical */
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#0d0e18);--ink:light-dark(#14110f,#ecebf3);--soft:light-dark(#5b5d6b,#a4a6b8);--line:light-dark(#dfe0e8,#2a2c3e);--blue:light-dark(#1d2bd8,#7f8cff);--panel:light-dark(#f4f5fb,#151729);--amber:light-dark(#b45a00,#ffb15c)}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif;overflow-x:clip}
+a{color:var(--blue);text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:2px}
+.band{padding-block:clamp(28px,4vw,56px);padding-left:max(5vw,16px);padding-right:max(5vw,16px)}
+.wrap{max-width:1240px;margin:0 auto}
+h1,h2,h3{font-family:Spectral,Georgia,serif;font-weight:600;letter-spacing:-.02em;line-height:1.05;margin:0}
+h1{font-size:clamp(34px,5vw,52px);text-wrap:balance}
+h2{font-size:clamp(26px,3vw,34px);text-wrap:balance;margin-bottom:18px}
+h3{font-size:22px;margin-bottom:8px}
+p{margin:0 0 12px;max-width:68ch}
+.top{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:32px;align-items:end}
+.lede{font-size:17px;margin-top:14px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(10em,1fr));gap:12px}
+.fact{border-top:2px solid var(--blue);padding-top:8px}
+.fact b{display:block;font-family:Spectral,Georgia,serif;font-size:28px;line-height:1.1;white-space:nowrap}
+.fact span{font-size:14px;color:var(--soft)}
+.route{margin-top:32px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px}
+.route h2{font-size:22px;margin-bottom:4px}
+.route .sub{font-size:14px;color:var(--soft);margin-bottom:16px}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));position:relative}
+.steps:before{content:"";position:absolute;left:10%;right:10%;top:15px;height:3px;background:var(--line)}
+.steps li{position:relative;padding:0 8px;text-align:center}
+.dot{width:32px;height:32px;border-radius:50%;margin:0 auto 10px;display:grid;place-items:center;font-size:15px;font-weight:600;color:#fff;position:relative;z-index:1}
+.ok .dot{background:var(--blue)}
+.stop .dot{background:var(--amber)}
+.end .dot{background:var(--blue);box-shadow:0 0 0 6px color-mix(in srgb,var(--blue) 22%,transparent)}
+.steps b{display:block;font-size:15px}
+.steps small{display:block;font-size:13px;color:var(--soft);line-height:1.4;margin-top:4px}
+.steps .big{font-family:Spectral,Georgia,serif;font-size:30px;line-height:1;color:var(--blue);white-space:nowrap;display:block;margin-top:6px}
+.note{font-size:14px;color:var(--soft);margin-top:14px;max-width:none}
+.pattern{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:4px 0 22px}
+.pill{border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:15px;background:var(--bg)}
+.pill.k{border-color:var(--blue);color:var(--blue);font-weight:600}
+.arrow{color:var(--soft)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.card{border-top:1px solid var(--ink);padding-top:14px;display:flex;flex-direction:column}
+.card .tag{font-size:13px;color:var(--soft);margin-bottom:10px}
+.card dl{margin:6px 0 12px;font-size:15px}
+.card dt{font-weight:600;margin-top:10px}
+.card dd{margin:2px 0 0}
+.card .go{margin-top:auto;font-weight:500}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px}
+.ask{background:var(--blue);color:#fff}
+.ask h2{color:#fff}
+.ask a{color:#fff;font-weight:600}
+.ask p{font-size:17px}
+footer{font-size:13px;color:var(--soft)}
+@media(max-width:900px){.grid{grid-template-columns:minmax(0,1fr)}.top,.two{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:700px){.steps{grid-template-columns:minmax(0,1fr);gap:14px}.steps:before{left:15px;right:auto;top:16px;bottom:16px;width:3px;height:auto}.steps li{display:grid;grid-template-columns:32px minmax(0,1fr);gap:12px;text-align:left;padding:0}.dot{margin:0}}
+@media(prefers-reduced-motion:no-preference){.end .dot{animation:pulse 2.4s ease-in-out 2}}
+@keyframes pulse{50%{box-shadow:0 0 0 12px color-mix(in srgb,var(--blue) 0%,transparent)}}
+</style>
+</head>
+<body>
+
+<header class="band">
+ <div class="wrap">
+  <div class="top">
+   <div>
+    <h1>He Xiao gets AI systems running where they don't run by default</h1>
+    <p class="lede">Applied AI and AI infrastructure engineer in London. I take models from demo to a real environment, and I make every result checkable. Head of AI Infrastructure at EdgeNebula; PhD, UCL.</p>
+   </div>
+   <div class="facts">
+    <div class="fact"><b>GH200</b><span>supercomputer GPUs where I brought up vLLM</span></div>
+    <div class="fact"><b>EuroHPC</b><span>research allocation on JUPITER</span></div>
+    <div class="fact"><b>3</b><span>public AI builds with code you can read</span></div>
+   </div>
+  </div>
+
+  <section class="route" aria-labelledby="r">
+   <h2 id="r">Case study: first LLM inference on JUPITER, Europe's first exascale supercomputer</h2>
+   <p class="sub">Five real steps, two failures caught before they cost GPU time. ARM nodes, Slurm, Apptainer containers, certificate plus TOTP access.</p>
+   <ol class="steps">
+    <li class="ok"><div class="dot">1</div><div><b>Pin everything</b><small>vLLM aarch64 image pulled by digest, model copied and checked by SHA-256</small></div></li>
+    <li class="stop"><div class="dot">!</div><div><b>Dry run rejects the job</b><small>The standard GPU request syntax is invalid on this cluster. Stopped, fixed the request, no job wasted</small></div></li>
+    <li class="ok"><div class="dot">2</div><div><b>CUDA self-test passes</b><small>fp64 matmul matches the CPU reference. Also surfaced how GPU requests are really allocated and billed</small></div></li>
+    <li class="stop"><div class="dot">!</div><div><b>Preflight stops a bad server</b><small>A version mismatch inside the container was caught by preflight. The job stopped itself in under a minute, before serving</small></div></li>
+    <li class="end"><div class="dot">✓</div><div><b>Model answers</b><small>first reproducible vLLM inference job on JUPITER, every file hash-verified</small></div></li>
+   </ol>
+  </section>
+ </div>
+</header>
+
+<section class="band" style="border-top:1px solid var(--line)">
+ <div class="wrap">
+  <h2>The same pattern in every build</h2>
+  <div class="pattern" aria-label="Design pattern">
+   <span class="pill">Model proposes</span><span class="arrow">→</span>
+   <span class="pill k">Deterministic code decides</span><span class="arrow">→</span>
+   <span class="pill">Every output records its source</span><span class="arrow">→</span>
+   <span class="pill">Human takes the risky cases</span>
+  </div>
+  <div class="grid">
+   <article class="card">
+    <div class="tag">Hackathon · my component of a team project · Python</div>
+    <h3>LondonZero feasibility agent</h3>
+    <dl>
+     <dt>Problem</dt><dd>Turn scattered open data about a dangerous London junction into a redesign brief a visual agent can use, without the LLM inventing safety claims.</dd>
+     <dt>What I built</dt><dd>Six open datasets (TfL collisions, DfT traffic, OSM, cycling, PTAL, policy notes) filtered by radius, rule-based feasibility scoring, local RAG, guardrail agent, Streamlit UI. A live Nemotron 120B call adds a planning note but cannot overwrite the scored result.</dd>
+     <dt>Status</dt><dd>Prototype. Live model call verified; no accuracy benchmark.</dd>
+    </dl>
+    <a class="go" href="https://github.com/HXIAOSHAW/londonzero_feasibility-agent">Code and docs</a>
+   </article>
+   <article class="card">
+    <div class="tag">Cursor Hackathon 2026 · team build, 7 of 9 commits mine · TypeScript</div>
+    <h3>MessagePilot AI</h3>
+    <dl>
+     <dt>Problem</dt><dd>A small shop wants an agent that answers WhatsApp customers and actually acts: orders, payment, refunds. The risk is an agent that refunds or admits fault on its own.</dd>
+     <dt>What I built</dt><dd>Intent router, order and complaint agents, PayPal checkout. The LLM judges a complaint; the backend enforces policy: auto-refund only for low-severity cases up to £30 on a real order, everything else becomes an owner task. Deterministic fallback when the model fails.</dd>
+     <dt>Status</dt><dd>Prototype on sandbox payments.</dd>
+    </dl>
+    <a class="go" href="https://github.com/HXIAOSHAW/MessagePilot-AI">Code and docs</a>
+   </article>
+   <article class="card">
+    <div class="tag">Personal research · sole author · Python</div>
+    <h3>PLD Datahub Explorer</h3>
+    <dl>
+     <dt>Problem</dt><dd>Can London's public planning data tell an infrastructure team where data centres and energy projects are being proposed?</dd>
+     <dt>What I built</dt><dd>Config-driven client and pipeline over the Planning London Datahub API. Probed 7 indices (6 reachable), found 147 relevant planning records, 50 directly about data centres, and ranked boroughs by signal.</dd>
+     <dt>Status</dt><dd>Exploratory. Heuristic scoring, not a validated model.</dd>
+    </dl>
+    <a class="go" href="https://github.com/HXIAOSHAW/pld-datahub-explorer">Code and report</a>
+   </article>
+  </div>
+ </div>
+</section>
+
+<section class="band ask">
+ <div class="wrap">
+  <h2>Contact</h2>
+  <p><a href="https://www.linkedin.com/in/dr-he-xiao/">LinkedIn</a> · <a href="https://github.com/HXIAOSHAW">GitHub</a></p>
+ </div>
+</section>
+
+<footer class="band">
+ <div class="wrap">Every claim on this page links to public code or a public record, or is backed by a run log I can share on request. Last updated November 2026.</div>
+</footer>
+
+</body>
+</html>
